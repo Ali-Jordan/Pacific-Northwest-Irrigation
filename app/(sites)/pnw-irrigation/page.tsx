@@ -1,184 +1,149 @@
 "use client";
-
-import { useState } from 'react';
-import Image from 'next/image';
+import { useState } from "react";
 
 export default function PacificNorthwestIrrigation() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const services = [
-    {
-      title: "Irrigation System Design",
-      description: "Customized solutions for your land size, soil type, water availability, and budget"
-    },
-    {
-      title: "Irrigation System Installation",
-      description: "Professional installation of sprinkler systems and drip irrigation"
-    },
-    {
-      title: "Irrigation System Maintenance",
-      description: "Regular inspections, tune-ups, and water conservation optimization"
-    },
-    {
-      title: "Irrigation System Repair",
-      description: "Prompt diagnosis and repair to keep your system running efficiently"
-    },
-    {
-      title: "Smart Irrigation Technology",
-      description: "Advanced controllers, sensors, and weather stations for optimal efficiency"
-    }
-  ];
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Sticky Header */}
-      <header className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex items-center">
-              <div className="w-10 h-10 bg-[#1a5c2e] rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">PN</span>
-              </div>
-              <span className="ml-3 text-xl font-bold text-[#1a5c2e]">Pacific Northwest Irrigation</span>
-            </div>
-            
-            <nav className="hidden md:flex space-x-8">
-              <a href="#services" className="text-gray-700 hover:text-[#1a5c2e] transition-colors">Services</a>
-              <a href="#contact" className="text-gray-700 hover:text-[#1a5c2e] transition-colors">Contact</a>
-            </nav>
+    <div className="min-h-screen font-sans" style={{fontFamily:"'Segoe UI',system-ui,sans-serif"}}>
 
-            <a href="tel:2069901392" className="hidden md:block bg-[#2ecc71] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#27ae60] transition-colors">
+      {/* NAV */}
+      <nav style={{background:"#0f3d1f",position:"sticky",top:0,zIndex:50,boxShadow:"0 2px 20px rgba(0,0,0,0.3)"}}>
+        <div style={{maxWidth:1200,margin:"0 auto",padding:"0 24px",display:"flex",alignItems:"center",justifyContent:"space-between",height:72}}>
+          <div style={{display:"flex",alignItems:"center",gap:12}}>
+            <div style={{width:44,height:44,borderRadius:"50%",background:"linear-gradient(135deg,#2ecc71,#27ae60)",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:900,color:"#fff",fontSize:16,letterSpacing:1}}>PNI</div>
+            <div>
+              <div style={{color:"#fff",fontWeight:800,fontSize:18,lineHeight:1}}>Pacific Northwest Irrigation</div>
+              <div style={{color:"#2ecc71",fontSize:12,letterSpacing:1}}>SEATTLE'S IRRIGATION EXPERTS</div>
+            </div>
+          </div>
+          <div style={{display:"flex",alignItems:"center",gap:32}}>
+            <a href="#services" style={{color:"#ccc",textDecoration:"none",fontSize:14,fontWeight:500}}>Services</a>
+            <a href="#why-us" style={{color:"#ccc",textDecoration:"none",fontSize:14,fontWeight:500}}>Why Us</a>
+            <a href="#contact" style={{color:"#ccc",textDecoration:"none",fontSize:14,fontWeight:500}}>Contact</a>
+            <a href="tel:2069901392" style={{background:"linear-gradient(135deg,#2ecc71,#27ae60)",color:"#fff",padding:"10px 24px",borderRadius:50,fontWeight:700,fontSize:14,textDecoration:"none",boxShadow:"0 4px 15px rgba(46,204,113,0.4)"}}>
               (206) 990-1392
             </a>
-
-            <button 
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
           </div>
-
-          {isMenuOpen && (
-            <div className="md:hidden pb-4">
-              <a href="#services" className="block py-2 text-gray-700 hover:text-[#1a5c2e]">Services</a>
-              <a href="#contact" className="block py-2 text-gray-700 hover:text-[#1a5c2e]">Contact</a>
-              <a href="tel:2069901392" className="block mt-4 bg-[#2ecc71] text-white px-6 py-2 rounded-lg font-semibold text-center">
-                (206) 990-1392
-              </a>
-            </div>
-          )}
         </div>
-      </header>
+      </nav>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#1a5c2e] to-[#2ecc71] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Seattle's Irrigation Experts</h1>
-            <p className="text-xl mb-8 text-gray-100">Professional irrigation services for residential and commercial properties across the Pacific Northwest</p>
-            
-            <div className="flex flex-wrap gap-4 mb-8">
-              <div className="flex items-center bg-white bg-opacity-20 px-4 py-2 rounded-lg">
-                <span className="text-yellow-300 mr-2">★★★★★</span>
-                <span className="font-semibold">4.6 Stars</span>
-              </div>
-              <div className="bg-white bg-opacity-20 px-4 py-2 rounded-lg">
-                <span className="font-semibold">28 Reviews</span>
-              </div>
-              <div className="bg-white bg-opacity-20 px-4 py-2 rounded-lg">
-                <span className="font-semibold">Open 24 Hours</span>
-              </div>
-              <div className="bg-white bg-opacity-20 px-4 py-2 rounded-lg">
-                <span className="font-semibold">Licensed & Insured</span>
-              </div>
-            </div>
-
-            <a href="tel:2069901392" className="inline-block bg-white text-[#1a5c2e] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
-              Call Now: (206) 990-1392
+      {/* HERO */}
+      <section style={{background:"linear-gradient(135deg,#0a2612 0%,#0f3d1f 40%,#1a6b35 100%)",minHeight:"90vh",display:"flex",alignItems:"center",position:"relative",overflow:"hidden"}}>
+        <div style={{position:"absolute",inset:0,backgroundImage:"radial-gradient(circle at 70% 50%, rgba(46,204,113,0.08) 0%, transparent 60%)"}}/>
+        <div style={{maxWidth:1200,margin:"0 auto",padding:"80px 24px",position:"relative",zIndex:1}}>
+          <div style={{display:"inline-block",background:"rgba(46,204,113,0.15)",border:"1px solid rgba(46,204,113,0.3)",borderRadius:50,padding:"6px 20px",color:"#2ecc71",fontSize:13,fontWeight:600,letterSpacing:2,marginBottom:24}}>
+            ✓ LICENSED & INSURED · OPEN 24 HOURS
+          </div>
+          <h1 style={{color:"#fff",fontSize:"clamp(42px,7vw,80px)",fontWeight:900,lineHeight:1.05,marginBottom:24,letterSpacing:"-1px"}}>
+            Seattle's Most<br/>
+            <span style={{background:"linear-gradient(135deg,#2ecc71,#7bed9f)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>Trusted Irrigation</span><br/>
+            Experts
+          </h1>
+          <p style={{color:"#a8d5b5",fontSize:20,marginBottom:40,maxWidth:560,lineHeight:1.7}}>
+            From custom system design to smart technology installation — we keep the Pacific Northwest green, efficient, and thriving.
+          </p>
+          <div style={{display:"flex",gap:16,flexWrap:"wrap",marginBottom:56}}>
+            <a href="tel:2069901392" style={{background:"linear-gradient(135deg,#2ecc71,#27ae60)",color:"#fff",padding:"18px 40px",borderRadius:50,fontWeight:800,fontSize:18,textDecoration:"none",boxShadow:"0 8px 30px rgba(46,204,113,0.5)",letterSpacing:0.5}}>
+              📞 Call Now: (206) 990-1392
+            </a>
+            <a href="#services" style={{background:"rgba(255,255,255,0.08)",color:"#fff",padding:"18px 40px",borderRadius:50,fontWeight:600,fontSize:18,textDecoration:"none",border:"1px solid rgba(255,255,255,0.2)"}}>
+              View Services →
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1a5c2e] mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600">Comprehensive irrigation solutions tailored to your needs</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                <div className="w-12 h-12 bg-[#2ecc71] rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#1a5c2e] mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+          <div style={{display:"flex",gap:32,flexWrap:"wrap"}}>
+            {[["4.6★","Google Rating"],["28","Verified Reviews"],["24/7","Always Available"],["15+","Years Experience"]].map(([val,label])=>(
+              <div key={label} style={{textAlign:"center"}}>
+                <div style={{color:"#2ecc71",fontSize:28,fontWeight:900,lineHeight:1}}>{val}</div>
+                <div style={{color:"#7a9e85",fontSize:12,marginTop:4,letterSpacing:1}}>{label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contact" className="py-20 bg-[#1a5c2e]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Upgrade Your Irrigation System?</h2>
-          <p className="text-xl text-gray-200 mb-8">Contact Seattle's trusted irrigation experts today for a free consultation</p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:2069901392" className="bg-[#2ecc71] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#27ae60] transition-colors">
-              📞 (206) 990-1392
-            </a>
-            <div className="bg-white bg-opacity-10 px-8 py-4 rounded-lg text-white">
-              <p className="font-semibold">Seattle, WA</p>
-              <p className="text-sm">Open 24 Hours</p>
-            </div>
+      {/* SERVICES */}
+      <section id="services" style={{background:"#f8faf9",padding:"100px 24px"}}>
+        <div style={{maxWidth:1200,margin:"0 auto"}}>
+          <div style={{textAlign:"center",marginBottom:64}}>
+            <div style={{color:"#2ecc71",fontWeight:700,letterSpacing:3,fontSize:13,marginBottom:12}}>WHAT WE DO</div>
+            <h2 style={{fontSize:"clamp(32px,5vw,52px)",fontWeight:900,color:"#0f3d1f",marginBottom:16}}>Complete Irrigation Solutions</h2>
+            <p style={{color:"#5a7a65",fontSize:18,maxWidth:500,margin:"0 auto"}}>Every service you need, delivered by certified professionals.</p>
+          </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(320px,1fr))",gap:28}}>
+            {[
+              {icon:"🎨",title:"System Design",desc:"Custom-engineered irrigation plans built around your land size, soil type, water availability, and budget. No one-size-fits-all here."},
+              {icon:"🔧",title:"Installation",desc:"Professional installation of sprinkler systems and drip irrigation using industry-leading equipment and zero-mess techniques."},
+              {icon:"🔍",title:"Maintenance & Tune-Ups",desc:"Seasonal inspections, pressure adjustments, and water conservation audits to keep your system running at peak performance."},
+              {icon:"⚡",title:"Rapid Repair",desc:"Something break? We diagnose fast and fix right the first time — 24/7 emergency response available throughout Seattle."},
+              {icon:"🤖",title:"Smart Technology",desc:"Upgrade to smart controllers, soil moisture sensors, and weather-linked stations that save water and reduce your bill automatically."},
+              {icon:"💧",title:"Water Conservation",desc:"Expert audits and retrofits to maximize efficiency, reduce runoff, and keep you compliant with local watering restrictions."},
+            ].map(({icon,title,desc})=>(
+              <div key={title} style={{background:"#fff",borderRadius:20,padding:"36px 32px",boxShadow:"0 4px 24px rgba(0,0,0,0.06)",border:"1px solid #e8f0ea",transition:"all 0.2s"}}>
+                <div style={{width:56,height:56,borderRadius:16,background:"linear-gradient(135deg,#e8f8ef,#d0f0dc)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,marginBottom:20}}>{icon}</div>
+                <h3 style={{color:"#0f3d1f",fontWeight:800,fontSize:20,marginBottom:10}}>{title}</h3>
+                <p style={{color:"#5a7a65",lineHeight:1.7,fontSize:15}}>{desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center mb-4">
-                <div className="w-10 h-10 bg-[#2ecc71] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">PN</span>
+      {/* WHY US */}
+      <section id="why-us" style={{background:"linear-gradient(135deg,#0f3d1f,#1a6b35)",padding:"100px 24px"}}>
+        <div style={{maxWidth:1100,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1fr",gap:80,alignItems:"center"}}>
+          <div>
+            <div style={{color:"#2ecc71",fontWeight:700,letterSpacing:3,fontSize:13,marginBottom:12}}>WHY CHOOSE US</div>
+            <h2 style={{color:"#fff",fontSize:"clamp(32px,4vw,48px)",fontWeight:900,marginBottom:24,lineHeight:1.2}}>Built on Trust, Backed by Results</h2>
+            <p style={{color:"#a8d5b5",fontSize:17,lineHeight:1.8,marginBottom:40}}>
+              Since opening our doors, we've been the go-to irrigation company for Seattle homeowners and commercial property managers who want it done right — the first time.
+            </p>
+            <a href="tel:2069901392" style={{display:"inline-block",background:"linear-gradient(135deg,#2ecc71,#27ae60)",color:"#fff",padding:"16px 36px",borderRadius:50,fontWeight:700,fontSize:16,textDecoration:"none",boxShadow:"0 8px 30px rgba(46,204,113,0.4)"}}>
+              Get a Free Quote
+            </a>
+          </div>
+          <div style={{display:"flex",flexDirection:"column",gap:20}}>
+            {[
+              ["⏱️","24/7 Emergency Service","We don't go offline. When your system fails, we show up — day or night."],
+              ["📍","Local Seattle Experts","We know the Pacific Northwest climate, soil, and regulations better than anyone."],
+              ["🛡️","Licensed & Fully Insured","Every job is protected. Your property, your peace of mind."],
+              ["💰","Transparent Pricing","No hidden fees. You see the full quote before we touch a thing."],
+            ].map(([icon,title,desc])=>(
+              <div key={title} style={{background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.1)",borderRadius:16,padding:"24px 28px",display:"flex",gap:20,alignItems:"flex-start"}}>
+                <div style={{fontSize:28,flexShrink:0}}>{icon}</div>
+                <div>
+                  <div style={{color:"#fff",fontWeight:700,fontSize:16,marginBottom:4}}>{title}</div>
+                  <div style={{color:"#7ab88a",fontSize:14,lineHeight:1.6}}>{desc}</div>
                 </div>
-                <span className="ml-3 text-xl font-bold">Pacific Northwest Irrigation</span>
               </div>
-              <p className="text-gray-400">Seattle's premier irrigation specialists, serving residential and commercial properties throughout the Pacific Northwest.</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-              <p className="text-gray-400 mb-2">📍 Seattle, WA</p>
-              <p className="text-gray-400 mb-2">📞 (206) 990-1392</p>
-              <p className="text-gray-400">🕐 Open 24 Hours</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Trust & Reliability</h3>
-              <div className="flex items-center mb-2">
-                <span className="text-yellow-400 mr-2">★★★★★</span>
-                <span>4.6 Stars (28 Reviews)</span>
-              </div>
-              <p className="text-gray-400">✓ Licensed & Insured</p>
-            </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Pacific Northwest Irrigation. All rights reserved.</p>
+      {/* CTA */}
+      <section id="contact" style={{background:"#fff",padding:"100px 24px",textAlign:"center"}}>
+        <div style={{maxWidth:700,margin:"0 auto"}}>
+          <div style={{width:72,height:72,borderRadius:"50%",background:"linear-gradient(135deg,#2ecc71,#27ae60)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:32,margin:"0 auto 28px"}}>📞</div>
+          <h2 style={{fontSize:"clamp(32px,5vw,52px)",fontWeight:900,color:"#0f3d1f",marginBottom:16}}>Ready to Get Started?</h2>
+          <p style={{color:"#5a7a65",fontSize:18,marginBottom:48,lineHeight:1.7}}>
+            Call Seattle's most trusted irrigation team today. Free consultations, transparent pricing, same-day estimates available.
+          </p>
+          <a href="tel:2069901392" style={{display:"inline-block",background:"linear-gradient(135deg,#0f3d1f,#1a6b35)",color:"#fff",padding:"22px 56px",borderRadius:50,fontWeight:800,fontSize:22,textDecoration:"none",boxShadow:"0 12px 40px rgba(15,61,31,0.3)",marginBottom:24}}>
+            (206) 990-1392
+          </a>
+          <div style={{color:"#5a7a65",fontSize:14}}>📍 Seattle, WA &nbsp;·&nbsp; ⏱️ Open 24 Hours &nbsp;·&nbsp; ⭐ 4.6 Stars (28 Reviews)</div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{background:"#070f09",color:"#fff",padding:"48px 24px"}}>
+        <div style={{maxWidth:1200,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:24}}>
+          <div>
+            <div style={{fontWeight:800,fontSize:18,marginBottom:4}}>Pacific Northwest Irrigation</div>
+            <div style={{color:"#3a5a42",fontSize:13}}>Seattle, WA · Licensed & Insured · Open 24 Hours</div>
           </div>
+          <div style={{color:"#3a5a42",fontSize:13}}>© 2025 Pacific Northwest Irrigation. All rights reserved.</div>
         </div>
       </footer>
     </div>
