@@ -1,9 +1,7 @@
-﻿{
-    "framework":  "nextjs",
-    "rewrites":  [
-                     {
-                         "destination":  "/pnw-irrigation/index.html",
-                         "source":  "/pnw-irrigation/"
-                     }
-                 ]
+{
+  "framework": "nextjs",
+  "rewrites": [
+    { "source": "/pnw-irrigation", "destination": "/pnw-irrigation/index.html" },
+    { "source": "/pnw-irrigation/", "destination": "/pnw-irrigation/index.html" }
+  ]
 }
