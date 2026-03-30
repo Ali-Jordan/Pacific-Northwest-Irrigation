@@ -1,8 +1,10 @@
-﻿export default function Home() {
+export default function Page() {
   return (
-    <div style={{ fontFamily: 'sans-serif', padding: '40px', textAlign: 'center' }}>
-      <h1>Pacific Northwest Irrigation</h1>
-      <p>Site coming soon.</p>
-    </div>
+    <html>
+      <head>
+        <meta httpEquiv="refresh" content="0;url=/pnw-irrigation/index.html" />
+      </head>
+      <body />
+    </html>
   )
 }
