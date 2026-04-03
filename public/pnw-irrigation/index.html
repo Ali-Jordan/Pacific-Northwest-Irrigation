@@ -18,14 +18,7 @@
   <!-- PNW-LOGO-INJECTION -->
 <style>
 /* ═══════════════════════════════════════════════════════════
-   PNW IRRIGATION — Color Pass 2
-   Palette:
-     Forest Green  #1B4332  — nav, dark sections
-     Deep Blue     #1565C0  — primary CTAs only
-     Teal          #0D7A5F  — labels, links, accents (nature feel)
-     Light Teal bg #E6F4F1  — icon containers
-     Navy          #0D2137  — service area, dark panels
-     White/Slate   #F8FAFC  — content section backgrounds
+   PNW IRRIGATION — Color Pass 2 + Mobile Nav Fix
    ═══════════════════════════════════════════════════════════ */
 
 /* ── NAV ── */
@@ -34,24 +27,34 @@ nav[class*="fixed"], nav[class*="bg-green"] {
   background-color: #1B4332 !important;
 }
 
-/* ── NAV LOGO — bigger, no glow ── */
-nav img, header img {
+/* ── NAV DESKTOP LOGO only — target the logo inside .group wrapper ──
+   Mobile menu logo is inside a link with py-4, so we explicitly exclude it */
+nav .group img,
+nav a.group img {
   filter: none !important;
   height: 68px !important;
   width: auto !important;
-  max-height: 68px !important;
-  object-fit: contain !important;
 }
 
-/* ── NAV "Get Free Quote" button — keep blue ── */
+/* ── Mobile menu logo — keep it small and inline ── */
+nav [class*="animate-fade"] img,
+nav [class*="py-4"] img,
+nav [class*="border-b"] img {
+  height: 28px !important;
+  width: auto !important;
+  filter: none !important;
+  margin: 0 !important;
+  display: inline-block !important;
+}
+
+/* ── NAV "Get Free Quote" button — blue ── */
 nav a[class*="bg-green"], header a[class*="bg-green"],
 a[class*="bg-green-600"][class*="font-semibold"],
 a[class*="bg-green-600"][class*="font-bold"] {
   background-color: #1565C0 !important;
   border-color: #1565C0 !important;
 }
-nav a[class*="bg-green"]:hover,
-header a[class*="bg-green"]:hover {
+nav a[class*="bg-green"]:hover, header a[class*="bg-green"]:hover {
   background-color: #0D47A1 !important;
 }
 
@@ -60,12 +63,11 @@ a[class*="bg-green-600"], button[class*="bg-green-600"] {
   background-color: #1565C0 !important;
   border-color: #1565C0 !important;
 }
-a[class*="bg-green-600"]:hover,
-button[class*="bg-green-600"]:hover {
+a[class*="bg-green-600"]:hover, button[class*="bg-green-600"]:hover {
   background-color: #0D47A1 !important;
 }
 
-/* ── SECTION BACKGROUNDS — off-white ── */
+/* ── SECTION BACKGROUNDS ── */
 section[class*="bg-green-50"], div[class*="bg-green-50"],
 section[class*="bg-gray-50"], div[class*="bg-gray-50"] {
   background-color: #F8FAFC !important;
@@ -79,108 +81,63 @@ div[class*="bg-white"][class*="shadow"] {
   box-shadow: 0 2px 16px rgba(0,0,0,0.05) !important;
 }
 
-/* ── SECTION EYEBROW LABELS — teal instead of blue ── */
-p[class*="text-green-600"],
-span[class*="text-green-600"],
-p[class*="text-green-500"],
-span[class*="text-green-500"] {
+/* ── SECTION LABELS & LINKS — teal ── */
+p[class*="text-green-600"], span[class*="text-green-600"],
+p[class*="text-green-500"], span[class*="text-green-500"] {
   color: #0D7A5F !important;
 }
-
-/* ── "LEARN MORE" LINKS — teal ── */
 a[class*="text-green-600"]:not(nav a):not(footer a) {
   color: #0D7A5F !important;
 }
-a[class*="text-green-600"]:hover:not(nav a):not(footer a) {
-  color: #0A5C47 !important;
-}
 
-/* ── CHECK ICON CONTAINERS — light teal bg ── */
-div[class*="bg-green-100"],
-span[class*="bg-green-100"] {
+/* ── CHECK ICON CONTAINERS — mint ── */
+div[class*="bg-green-100"], span[class*="bg-green-100"] {
   background-color: #D1FAE5 !important;
 }
-div[class*="bg-green-100"] svg,
-span[class*="bg-green-100"] svg,
-div[class*="bg-green-100"] *,
-span[class*="bg-green-100"] * {
-  color: #065F46 !important;
-  stroke: #065F46 !important;
+div[class*="bg-green-100"] svg, span[class*="bg-green-100"] svg {
+  color: #065F46 !important; stroke: #065F46 !important;
 }
 
-/* ── "15+ YEARS" EXPERIENCE BADGE — forest green ── */
+/* ── YEARS BADGE ── */
 div[class*="bg-green-600"][class*="absolute"],
 div[class*="bg-green-700"][class*="absolute"] {
   background: #1B4332 !important;
 }
 
-/* ── SERVICE AREA SECTION — dark navy ── */
-section[class*="bg-green-900"],
-section[class*="bg-green-800"],
-div[class*="bg-green-900"],
-div[class*="bg-green-800"] {
+/* ── SERVICE AREA — dark navy ── */
+section[class*="bg-green-900"], section[class*="bg-green-800"],
+div[class*="bg-green-900"], div[class*="bg-green-800"] {
   background-color: #0D2137 !important;
 }
-
-/* ── CITY BOXES inside service area ── */
-/* Target any rounded div inside the navy section */
 section[class*="bg-green-900"] div[class*="rounded"],
-section[class*="bg-green-800"] div[class*="rounded"],
-div[class*="bg-green-900"] div[class*="rounded"],
-div[class*="bg-green-800"] div[class*="rounded"] {
+div[class*="bg-green-900"] div[class*="rounded"] {
   background-color: rgba(13,122,95,0.18) !important;
   border: 1px solid rgba(13,122,95,0.35) !important;
 }
-
-/* City name text in service area ── */
 section[class*="bg-green-900"] p,
 section[class*="bg-green-900"] span,
 div[class*="bg-green-900"] p,
 div[class*="bg-green-900"] span {
   color: #E0F2EE !important;
 }
-
-/* "Where We Work" eyebrow in service area ── */
 section[class*="bg-green-900"] p[class*="text-green-400"],
-div[class*="bg-green-900"] p[class*="text-green-400"],
-section[class*="bg-green-900"] span[class*="text-green-400"],
-div[class*="bg-green-900"] span[class*="text-green-400"] {
+div[class*="bg-green-900"] p[class*="text-green-400"] {
   color: #5EEAD4 !important;
 }
 
-/* ── CTA BANNER "Ready for a Healthier Lawn?" ── */
-/* Deep forest green gradient instead of flat blue */
-section[class*="bg-green-500"],
-section[class*="bg-green-600"],
-div[class*="bg-green-500"],
-div[class*="bg-green-600"] {
+/* ── CTA BANNER ── */
+section[class*="bg-green-500"], section[class*="bg-green-600"],
+div[class*="bg-green-500"], div[class*="bg-green-600"] {
   background: linear-gradient(135deg, #1B4332 0%, #0D7A5F 100%) !important;
 }
 
-/* CTA banner secondary button — teal outline ── */
-section[class*="bg-green-500"] a[class*="bg-green"],
-section[class*="bg-green-600"] a[class*="bg-green"],
-div[class*="bg-green-500"] a[class*="bg-green"],
-div[class*="bg-green-600"] a[class*="bg-green"] {
-  background-color: rgba(255,255,255,0.15) !important;
-  border: 2px solid rgba(255,255,255,0.5) !important;
-  color: white !important;
-}
-
-/* ── TESTIMONIALS section bg ── */
-section[class*="bg-gray-50"],
-div[class*="bg-gray-50"] {
+/* ── TESTIMONIALS bg ── */
+section[class*="bg-gray-50"], div[class*="bg-gray-50"] {
   background-color: #F0F9F6 !important;
 }
 
-/* Reviewer city links in testimonials ── */
-a[class*="text-green-600"][href] {
-  color: #0D7A5F !important;
-}
-
 /* ── FOOTER LOGO BADGE ── */
-.w-10.h-10.bg-green-600 span,
-.w-10.h-10.bg-green-600 .text-white {
+.w-10.h-10.bg-green-600 span, .w-10.h-10.bg-green-600 .text-white {
   display: none !important;
 }
 .w-10.h-10.bg-green-600 {
@@ -195,7 +152,7 @@ a[class*="text-green-600"][href] {
   border-radius: 0 !important;
 }
 
-/* ── SCROLL TO TOP ── */
+/* ── SCROLL TO TOP & MISC ── */
 button[class*="bg-green-600"][class*="fixed"],
 a[class*="bg-green-600"][class*="fixed"] {
   background-color: #0D7A5F !important;
@@ -209,28 +166,47 @@ a[class*="bg-green-600"][class*="fixed"] {
 <script>
 (function() {
   function fixNavLogo() {
-    document.querySelectorAll('nav img, header img').forEach(function(img) {
+    // Only fix the desktop logo — the one inside a .group anchor
+    var groupImgs = document.querySelectorAll('nav .group img, nav a.group img');
+    groupImgs.forEach(function(img) {
       img.style.filter = 'none';
       img.style.height = '68px';
       img.style.width = 'auto';
+      img.style.margin = '0';
     });
-  }
-  function swapPreloaderIcon() {
-    document.querySelectorAll('.fixed.inset-0').forEach(function(el) {
-      if (el.className && el.className.includes('bg-green') && !el.querySelector('.pnw-real-logo')) {
-        var svg = el.querySelector('svg');
-        if (svg) {
-          var img = document.createElement('img');
-          img.className = 'pnw-real-logo';
-          img.src = '/pnw-irrigation/logo.png';
-          img.alt = 'Pacific Northwest Irrigation';
-          img.style.cssText = 'width:260px;height:auto;display:block;margin:0 auto 24px;filter:none;';
-          svg.parentNode.insertBefore(img, svg);
-          svg.style.display = 'none';
-        }
+    // Shrink any other nav images (mobile menu)
+    var allNavImgs = document.querySelectorAll('nav img');
+    allNavImgs.forEach(function(img) {
+      if (!img.closest('.group')) {
+        img.style.filter = 'none';
+        img.style.height = '28px';
+        img.style.width = 'auto';
+        img.style.margin = '0';
+        img.style.display = 'inline-block';
       }
     });
   }
+
+  function swapPreloaderIcon() {
+    // Only target the true preloader — must be .fixed.inset-0 with bg-green
+    // and must NOT be inside nav
+    document.querySelectorAll('.fixed.inset-0').forEach(function(el) {
+      if (el.tagName === 'NAV' || el.closest('nav') || el.closest('header')) return;
+      if (!el.className.includes('bg-green')) return;
+      if (el.querySelector('.pnw-real-logo')) return;
+      var svg = el.querySelector('svg');
+      if (svg) {
+        var img = document.createElement('img');
+        img.className = 'pnw-real-logo';
+        img.src = '/pnw-irrigation/logo.png';
+        img.alt = 'Pacific Northwest Irrigation';
+        img.style.cssText = 'width:260px;height:auto;display:block;margin:0 auto 24px;filter:none;';
+        svg.parentNode.insertBefore(img, svg);
+        svg.style.display = 'none';
+      }
+    });
+  }
+
   var obs = new MutationObserver(function() { fixNavLogo(); swapPreloaderIcon(); });
   obs.observe(document.documentElement, {childList:true, subtree:true});
   fixNavLogo(); swapPreloaderIcon();
