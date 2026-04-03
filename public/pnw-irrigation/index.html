@@ -17,39 +17,26 @@
     <link rel="stylesheet" crossorigin href="/pnw-irrigation/assets/index-Dyym45z0.css">
   <!-- PNW-LOGO-INJECTION -->
 <style>
-  /* ── Footer: replace green PNW badge with real logo ── */
-  /* Hide the "PNW" text */
+  /* ── Footer: hide PNW text, show logo as background ── */
   .w-10.h-10.bg-green-600 span,
   .w-10.h-10.bg-green-600 .text-white {
     display: none !important;
   }
-  /* Show logo as background on the badge container */
   .w-10.h-10.bg-green-600 {
     background-color: transparent !important;
     background-image: url('/pnw-irrigation/logo.png') !important;
     background-size: contain !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
-    width: 56px !important;
-    height: 56px !important;
+    width: 80px !important;
+    height: 80px !important;
     border-radius: 0 !important;
-  }
-
-  /* ── Preloader: hide water drop SVG, show logo ── */
-  /* The preloader icon wrapper has these classes */
-  .preloader-icon svg,
-  .preloader-text svg {
-    display: none !important;
-  }
-  /* Inject logo via the preloader container */
-  .fixed.inset-0.z-\[9999\] svg:first-of-type {
-    display: none !important;
+    min-width: 80px !important;
   }
 </style>
 <script>
 (function() {
   function swapPreloaderIcon() {
-    // Target the preloader — green full-screen div
     var preloaders = document.querySelectorAll('.fixed.inset-0');
     preloaders.forEach(function(el) {
       if (el.className && el.className.includes('bg-green') && !el.querySelector('.pnw-real-logo')) {
@@ -59,15 +46,13 @@
           img.className = 'pnw-real-logo';
           img.src = '/pnw-irrigation/logo.png';
           img.alt = 'Pacific Northwest Irrigation';
-          img.style.cssText = 'width:200px;height:auto;display:block;margin:0 auto 20px;';
+          img.style.cssText = 'width:260px;height:auto;display:block;margin:0 auto 24px;';
           svg.parentNode.insertBefore(img, svg);
           svg.style.display = 'none';
         }
       }
     });
   }
-
-  // Run immediately and watch for React to mount the preloader
   var obs = new MutationObserver(swapPreloaderIcon);
   obs.observe(document.documentElement, {childList:true, subtree:true});
   swapPreloaderIcon();
