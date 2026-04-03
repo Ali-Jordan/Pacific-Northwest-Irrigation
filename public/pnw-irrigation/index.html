@@ -17,16 +17,8 @@
     <link rel="stylesheet" crossorigin href="/pnw-irrigation/assets/index-Dyym45z0.css">
   <!-- PNW-LOGO-INJECTION -->
 <style>
-/* ═══════════════════════════════════════════════════════════
-   PNW IRRIGATION — Final Color + Nav Fix
-   ═══════════════════════════════════════════════════════════ */
-
-/* ── NAV: ALWAYS solid — overrides bg-transparent AND bg-green-800/95 ──
-   Use wildcard attribute selectors to catch all scroll states            */
-nav,
-nav[class*="bg-transparent"],
-nav[class*="bg-green"],
-nav[class*="fixed"] {
+/* ── NAV always solid ── */
+nav, nav[class*="bg-transparent"], nav[class*="bg-green"], nav[class*="fixed"] {
   background-color: #1B4332 !important;
   backdrop-filter: none !important;
 }
@@ -40,19 +32,17 @@ nav a.group img, nav .group > img {
   margin: 0 !important;
 }
 
+/* ── Mobile menu ── */
+nav > div[class*="lg:hidden"][class*="fixed"] {
+  z-index: 999 !important;
+  background-color: rgba(20, 83, 45, 0.99) !important;
+}
+
 /* ── NAV CTA ── */
 nav a[class*="bg-green"] { background-color: #1565C0 !important; }
 nav a[class*="bg-green"]:hover { background-color: #0D47A1 !important; }
 
-/* ── MOBILE MENU: proper coverage, no bleed-through ──
-   The menu is z-50 but content was showing through — boost z-index    */
-nav > div[class*="lg:hidden"][class*="fixed"] {
-  z-index: 999 !important;
-  background-color: rgba(20, 83, 45, 0.99) !important;
-  backdrop-filter: blur(8px) !important;
-}
-
-/* ── HERO BUTTONS ── */
+/* ── HERO buttons ── */
 a[class*="bg-green-600"]:not(nav a):not(footer a):not([class*="fixed"]) {
   background-color: #1565C0 !important;
 }
@@ -60,18 +50,17 @@ a[class*="bg-green-600"]:hover:not(nav a):not(footer a):not([class*="fixed"]) {
   background-color: #0D47A1 !important;
 }
 
-/* ── SECTION BACKGROUNDS ── */
+/* ── SECTION backgrounds ── */
 section[class*="bg-green-50"], div[class*="bg-green-50"] { background-color: #F8FAFC !important; }
 section[class*="bg-gray-50"] { background-color: #F0F9F6 !important; }
 
 /* ── SERVICE CARDS ── */
-div[class*="bg-white"][class*="rounded-xl"],
-div[class*="bg-white"][class*="rounded-2xl"] {
+div[class*="bg-white"][class*="rounded-xl"], div[class*="bg-white"][class*="rounded-2xl"] {
   border: 1px solid #E2E8F0 !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.05) !important;
 }
 
-/* ── LABELS & LINKS — teal ── */
+/* ── LABELS & LINKS teal ── */
 p[class*="text-green-600"]:not(nav *):not(footer *),
 span[class*="text-green-600"]:not(nav *):not(footer *),
 a[class*="text-green-600"]:not(nav a):not(footer a) { color: #0D7A5F !important; }
@@ -85,25 +74,43 @@ div[class*="bg-green-600"][class*="absolute"], div[class*="bg-green-700"][class*
   background: #1B4332 !important;
 }
 
-/* ── SERVICE AREA ── */
+/* ── SERVICE AREA SECTION ── */
 section[class*="bg-green-900"], section[class*="bg-green-800"] { background-color: #0D2137 !important; }
 section[class*="bg-green-900"] div[class*="rounded"] {
   background-color: rgba(13,122,95,0.18) !important;
   border: 1px solid rgba(13,122,95,0.35) !important;
 }
-section[class*="bg-green-900"] p,
-section[class*="bg-green-900"] span { color: #E0F2EE !important; }
+section[class*="bg-green-900"] p, section[class*="bg-green-900"] span { color: #E0F2EE !important; }
 section[class*="bg-green-900"] [class*="text-green-400"] { color: #5EEAD4 !important; }
 
-/* ── CTA BANNER ── */
+/* ── CTA BANNER — forest to teal gradient ── */
 section[class*="bg-green-500"], section[class*="bg-green-600"] {
   background: linear-gradient(135deg, #1B4332 0%, #0D7A5F 100%) !important;
+}
+/* Fix "Request Quote Online" — make it outlined white, not solid green */
+section[class*="bg-green-500"] a[class*="bg-green"],
+section[class*="bg-green-600"] a[class*="bg-green"],
+section[class*="bg-green-500"] button[class*="bg-green"],
+section[class*="bg-green-600"] button[class*="bg-green"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: 2px solid rgba(255,255,255,0.7) !important;
+  color: white !important;
 }
 
 /* ── SCROLL TO TOP ── */
 button[class*="bg-green-600"][class*="fixed"] { background-color: #0D7A5F !important; }
 
-/* ── FOOTER LOGO ── */
+/* ── FOOTER: remove green column boxes ──
+   Footer columns show bg-green-800/700 boxes — neutralize them */
+footer div[class*="bg-green-800"],
+footer div[class*="bg-green-700"],
+footer div[class*="bg-green-600"]:not(.w-10) {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* ── FOOTER logo badge ── */
 footer .w-10.h-10.bg-green-600 span { display: none !important; }
 footer .w-10.h-10.bg-green-600 {
   background: transparent !important;
@@ -147,9 +154,7 @@ footer .w-10.h-10.bg-green-600 {
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', fixNavLogo);
-  } else {
-    fixNavLogo();
-  }
+  } else { fixNavLogo(); }
   window.addEventListener('load', fixNavLogo);
   window.addEventListener('load', swapPreloaderIcon);
   window.addEventListener('load', function() { setTimeout(function() { fixNavLogo(); swapPreloaderIcon(); }, 500); });
