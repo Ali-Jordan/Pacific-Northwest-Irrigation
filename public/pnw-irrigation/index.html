@@ -17,17 +17,11 @@
     <link rel="stylesheet" crossorigin href="/pnw-irrigation/assets/index-Dyym45z0.css">
   <!-- PNW-LOGO-INJECTION -->
 <style>
-/* ═══════════════════════════════════════════════════════════
-   PNW IRRIGATION — Clean Final Injection
-   ═══════════════════════════════════════════════════════════ */
+/* ── NAV ── */
+nav.fixed, nav[class*="fixed"] { background-color: #1B4332 !important; }
 
-/* ── NAV BACKGROUND ── */
-nav.fixed, nav[class*="fixed"] {
-  background-color: #1B4332 !important;
-}
-
-/* ── DESKTOP LOGO — 48px, no glow ── */
-nav .group > img {
+/* ── Desktop logo only — .group is the logo anchor ── */
+nav a.group img, nav .group > img {
   filter: none !important;
   height: 48px !important;
   width: auto !important;
@@ -35,58 +29,20 @@ nav .group > img {
   margin: 0 !important;
 }
 
-/* ── MOBILE NAV: hamburger layout fix ──
-   Scoped to max-width 1023px ONLY so it never affects desktop */
-@media (max-width: 1023px) {
-  /* Nav row: logo left, hamburger right, vertically centered */
-  nav > div {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-  }
-  /* Hamburger centered vertically */
-  nav button[class*="lg:hidden"],
-  nav button.lg\:hidden {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 8px !important;
-  }
-}
+/* ── NAV CTA ── */
+nav a[class*="bg-green"] { background-color: #1565C0 !important; }
+nav a[class*="bg-green"]:hover { background-color: #0D47A1 !important; }
 
-/* ── MOBILE MENU: keep forest green, don't let it go navy ── */
-nav div[role="menu"],
-nav div[class*="bg-green-900"][class*="lg:hidden"] {
-  background-color: rgba(20, 83, 45, 0.98) !important;
-}
+/* ── HERO BUTTONS ── */
+a[class*="bg-green-600"]:not(nav a):not(footer a):not([class*="fixed"]) { background-color: #1565C0 !important; }
+a[class*="bg-green-600"]:hover:not(nav a):not(footer a):not([class*="fixed"]) { background-color: #0D47A1 !important; }
 
-/* ── NAV CTA BUTTON — blue ── */
-nav a[class*="bg-green"], header a[class*="bg-green"] {
-  background-color: #1565C0 !important;
-}
-nav a[class*="bg-green"]:hover {
-  background-color: #0D47A1 !important;
-}
-
-/* ── HERO BUTTONS — blue ── */
-a[class*="bg-green-600"]:not(nav a):not(footer a):not([class*="fixed"]) {
-  background-color: #1565C0 !important;
-}
-a[class*="bg-green-600"]:hover:not(nav a):not(footer a):not([class*="fixed"]) {
-  background-color: #0D47A1 !important;
-}
-
-/* ── SECTION BG ── */
-section[class*="bg-green-50"], div[class*="bg-green-50"] {
-  background-color: #F8FAFC !important;
-}
-section[class*="bg-gray-50"] {
-  background-color: #F0F9F6 !important;
-}
+/* ── CONTENT SECTION BGs ── */
+section[class*="bg-green-50"], div[class*="bg-green-50"] { background-color: #F8FAFC !important; }
+section[class*="bg-gray-50"] { background-color: #F0F9F6 !important; }
 
 /* ── SERVICE CARDS ── */
-div[class*="bg-white"][class*="rounded-xl"],
-div[class*="bg-white"][class*="rounded-2xl"] {
+div[class*="bg-white"][class*="rounded-xl"], div[class*="bg-white"][class*="rounded-2xl"] {
   border: 1px solid #E2E8F0 !important;
   box-shadow: 0 2px 16px rgba(0,0,0,0.05) !important;
 }
@@ -94,41 +50,25 @@ div[class*="bg-white"][class*="rounded-2xl"] {
 /* ── LABELS & LINKS — teal ── */
 p[class*="text-green-600"]:not(nav *):not(footer *),
 span[class*="text-green-600"]:not(nav *):not(footer *),
-a[class*="text-green-600"]:not(nav a):not(footer a) {
-  color: #0D7A5F !important;
-}
+a[class*="text-green-600"]:not(nav a):not(footer a) { color: #0D7A5F !important; }
 
-/* ── CHECK ICON CONTAINERS ── */
-div[class*="bg-green-100"], span[class*="bg-green-100"] {
-  background-color: #D1FAE5 !important;
-}
-div[class*="bg-green-100"] svg, span[class*="bg-green-100"] svg {
-  color: #065F46 !important;
-  stroke: #065F46 !important;
-}
+/* ── CHECK ICONS ── */
+div[class*="bg-green-100"], span[class*="bg-green-100"] { background-color: #D1FAE5 !important; }
+div[class*="bg-green-100"] svg, span[class*="bg-green-100"] svg { color: #065F46 !important; }
 
 /* ── YEARS BADGE ── */
-div[class*="bg-green-600"][class*="absolute"],
-div[class*="bg-green-700"][class*="absolute"] {
+div[class*="bg-green-600"][class*="absolute"], div[class*="bg-green-700"][class*="absolute"] {
   background: #1B4332 !important;
 }
 
-/* ── SERVICE AREA — only sections, not nav divs ── */
-section[class*="bg-green-900"], section[class*="bg-green-800"] {
-  background-color: #0D2137 !important;
-}
+/* ── SERVICE AREA SECTION — scope to <section> only, never touches nav/menu ── */
+section[class*="bg-green-900"], section[class*="bg-green-800"] { background-color: #0D2137 !important; }
 section[class*="bg-green-900"] div[class*="rounded"] {
   background-color: rgba(13,122,95,0.18) !important;
   border: 1px solid rgba(13,122,95,0.35) !important;
 }
-section[class*="bg-green-900"] p,
-section[class*="bg-green-900"] span {
-  color: #E0F2EE !important;
-}
-section[class*="bg-green-900"] p[class*="text-green-400"],
-section[class*="bg-green-900"] span[class*="text-green-400"] {
-  color: #5EEAD4 !important;
-}
+section[class*="bg-green-900"] p, section[class*="bg-green-900"] span { color: #E0F2EE !important; }
+section[class*="bg-green-900"] [class*="text-green-400"] { color: #5EEAD4 !important; }
 
 /* ── CTA BANNER ── */
 section[class*="bg-green-500"], section[class*="bg-green-600"] {
@@ -136,11 +76,9 @@ section[class*="bg-green-500"], section[class*="bg-green-600"] {
 }
 
 /* ── SCROLL TO TOP ── */
-button[class*="bg-green-600"][class*="fixed"] {
-  background-color: #0D7A5F !important;
-}
+button[class*="bg-green-600"][class*="fixed"] { background-color: #0D7A5F !important; }
 
-/* ── FOOTER LOGO BADGE — highest specificity, comes last ── */
+/* ── FOOTER LOGO — highest specificity ── */
 footer .w-10.h-10.bg-green-600 span { display: none !important; }
 footer .w-10.h-10.bg-green-600 {
   background: transparent !important;
@@ -148,54 +86,54 @@ footer .w-10.h-10.bg-green-600 {
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  width: 120px !important;
-  height: 120px !important;
-  min-width: 120px !important;
-  border-radius: 0 !important;
+  width: 120px !important; height: 120px !important;
+  min-width: 120px !important; border-radius: 0 !important;
 }
 </style>
 <script>
+// ONE-TIME run only — no MutationObserver, no loops
 (function() {
-  function fixNavLogo() {
-    // Only the desktop logo anchor (.group img)
-    document.querySelectorAll('nav .group > img').forEach(function(img) {
-      img.style.filter = 'none';
-      img.style.height = '48px';
-      img.style.width = 'auto';
-      img.style.margin = '0';
-      img.style.display = 'block';
-    });
-  }
+  function run() {
+    // 1. Fix nav desktop logo inline style (override compiled JS)
+    var groupImg = document.querySelector('nav a.group img, nav .group > img');
+    if (groupImg) {
+      groupImg.style.filter = 'none';
+      groupImg.style.height = '48px';
+      groupImg.style.width = 'auto';
+      groupImg.style.margin = '0';
+    }
 
-  function swapPreloaderIcon() {
-    document.querySelectorAll('.fixed.inset-0').forEach(function(el) {
+    // 2. Swap preloader SVG with logo — only the true full-screen preloader
+    //    Must be .fixed.inset-0 + bg-green + NOT the mobile menu (which has top-[72px])
+    var candidates = document.querySelectorAll('.fixed.inset-0');
+    candidates.forEach(function(el) {
       if (el.closest('nav') || el.closest('header')) return;
       if (el.getAttribute('role') === 'menu') return;
-      // Skip mobile menu (has top-[72px] in class or is inside nav)
-      if (el.className && (
-        el.className.includes('top-[72px]') ||
-        el.className.includes('lg:hidden')
-      )) return;
+      if (el.className.indexOf('top-[72px]') !== -1) return;
+      if (el.className.indexOf('lg:hidden') !== -1) return;
       if (!el.className.includes('bg-green')) return;
       if (el.querySelector('.pnw-real-logo')) return;
       var svg = el.querySelector('svg');
-      if (svg) {
-        var img = document.createElement('img');
-        img.className = 'pnw-real-logo';
-        img.src = '/pnw-irrigation/logo.png';
-        img.alt = 'Pacific Northwest Irrigation';
-        img.style.cssText = 'width:240px;height:auto;display:block;margin:0 auto 24px;filter:none;';
-        svg.parentNode.insertBefore(img, svg);
-        svg.style.display = 'none';
-      }
+      if (!svg) return;
+      var img = document.createElement('img');
+      img.className = 'pnw-real-logo';
+      img.src = '/pnw-irrigation/logo.png';
+      img.alt = 'Pacific Northwest Irrigation';
+      img.style.cssText = 'width:240px;height:auto;display:block;margin:0 auto 24px;filter:none;';
+      svg.parentNode.insertBefore(img, svg);
+      svg.style.display = 'none';
     });
   }
 
-  var obs = new MutationObserver(function() { fixNavLogo(); swapPreloaderIcon(); });
-  obs.observe(document.documentElement, {childList:true, subtree:true});
-  fixNavLogo(); swapPreloaderIcon();
-  setTimeout(function(){ fixNavLogo(); swapPreloaderIcon(); }, 100);
-  setTimeout(function(){ fixNavLogo(); swapPreloaderIcon(); }, 500);
+  // Run once at DOMContentLoaded, once at load, and once 500ms after load
+  // NO MutationObserver — that was causing the mobile menu glitch
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+  window.addEventListener('load', run);
+  window.addEventListener('load', function() { setTimeout(run, 500); });
 })();
 </script>
 <!-- /PNW-LOGO-INJECTION -->
