@@ -17,147 +17,484 @@
     <link rel="stylesheet" crossorigin href="/pnw-irrigation/assets/index-Dyym45z0.css">
   <!-- PNW-LOGO-INJECTION -->
 <style>
-/* ── NAV always solid ── */
+/* ── BASE COLORS ── */
 nav, nav[class*="bg-transparent"], nav[class*="bg-green"], nav[class*="fixed"] {
   background-color: #1B4332 !important;
   backdrop-filter: none !important;
 }
-
-/* ── Desktop logo ── */
 nav a.group img, nav .group > img {
-  filter: none !important;
-  height: 48px !important;
-  width: auto !important;
-  display: block !important;
-  margin: 0 !important;
+  filter: none !important; height: 48px !important; width: auto !important;
+  display: block !important; margin: 0 !important;
 }
-
-/* ── Mobile menu ── */
 nav > div[class*="lg:hidden"][class*="fixed"] {
-  z-index: 999 !important;
-  background-color: rgba(20, 83, 45, 0.99) !important;
+  z-index: 999 !important; background-color: rgba(20,83,45,0.99) !important;
 }
-
-/* ── NAV CTA ── */
 nav a[class*="bg-green"] { background-color: #1565C0 !important; }
 nav a[class*="bg-green"]:hover { background-color: #0D47A1 !important; }
-
-/* ── HERO buttons ── */
-a[class*="bg-green-600"]:not(nav a):not(footer a):not([class*="fixed"]) {
-  background-color: #1565C0 !important;
-}
-a[class*="bg-green-600"]:hover:not(nav a):not(footer a):not([class*="fixed"]) {
-  background-color: #0D47A1 !important;
-}
-
-/* ── SECTION backgrounds ── */
+a[class*="bg-green-600"]:not(nav a):not(footer a):not([class*="fixed"]) { background-color: #1565C0 !important; }
+a[class*="bg-green-600"]:hover:not(nav a):not(footer a):not([class*="fixed"]) { background-color: #0D47A1 !important; }
 section[class*="bg-green-50"], div[class*="bg-green-50"] { background-color: #F8FAFC !important; }
 section[class*="bg-gray-50"] { background-color: #F0F9F6 !important; }
-
-/* ── SERVICE CARDS ── */
 div[class*="bg-white"][class*="rounded-xl"], div[class*="bg-white"][class*="rounded-2xl"] {
-  border: 1px solid #E2E8F0 !important;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.05) !important;
+  border: 1px solid #E2E8F0 !important; box-shadow: 0 2px 16px rgba(0,0,0,0.05) !important;
 }
-
-/* ── LABELS & LINKS teal ── */
 p[class*="text-green-600"]:not(nav *):not(footer *),
 span[class*="text-green-600"]:not(nav *):not(footer *),
 a[class*="text-green-600"]:not(nav a):not(footer a) { color: #0D7A5F !important; }
-
-/* ── CHECK ICONS ── */
 div[class*="bg-green-100"], span[class*="bg-green-100"] { background-color: #D1FAE5 !important; }
 div[class*="bg-green-100"] svg, span[class*="bg-green-100"] svg { color: #065F46 !important; }
-
-/* ── YEARS BADGE ── */
-div[class*="bg-green-600"][class*="absolute"], div[class*="bg-green-700"][class*="absolute"] {
-  background: #1B4332 !important;
-}
-
-/* ── SERVICE AREA SECTION ── */
+div[class*="bg-green-600"][class*="absolute"], div[class*="bg-green-700"][class*="absolute"] { background: #1B4332 !important; }
 section[class*="bg-green-900"], section[class*="bg-green-800"] { background-color: #0D2137 !important; }
-section[class*="bg-green-900"] div[class*="rounded"] {
-  background-color: rgba(13,122,95,0.18) !important;
-  border: 1px solid rgba(13,122,95,0.35) !important;
-}
+section[class*="bg-green-900"] div[class*="rounded"] { background-color: rgba(13,122,95,0.18) !important; border: 1px solid rgba(13,122,95,0.35) !important; }
 section[class*="bg-green-900"] p, section[class*="bg-green-900"] span { color: #E0F2EE !important; }
 section[class*="bg-green-900"] [class*="text-green-400"] { color: #5EEAD4 !important; }
-
-/* ── CTA BANNER — forest to teal gradient ── */
-section[class*="bg-green-500"], section[class*="bg-green-600"] {
-  background: linear-gradient(135deg, #1B4332 0%, #0D7A5F 100%) !important;
+section[class*="bg-green-500"], section[class*="bg-green-600"] { background: linear-gradient(135deg, #1B4332 0%, #0D7A5F 100%) !important; }
+section[class*="bg-green-500"] a[class*="bg-green"], section[class*="bg-green-600"] a[class*="bg-green"],
+section[class*="bg-green-500"] button[class*="bg-green"], section[class*="bg-green-600"] button[class*="bg-green"] {
+  background-color: transparent !important; background: transparent !important;
+  border: 2px solid rgba(255,255,255,0.7) !important; color: white !important;
 }
-/* Fix "Request Quote Online" — make it outlined white, not solid green */
-section[class*="bg-green-500"] a[class*="bg-green"],
-section[class*="bg-green-600"] a[class*="bg-green"],
-section[class*="bg-green-500"] button[class*="bg-green"],
-section[class*="bg-green-600"] button[class*="bg-green"] {
-  background-color: transparent !important;
-  background: transparent !important;
-  border: 2px solid rgba(255,255,255,0.7) !important;
-  color: white !important;
-}
-
-/* ── SCROLL TO TOP ── */
 button[class*="bg-green-600"][class*="fixed"] { background-color: #0D7A5F !important; }
-
-/* ── FOOTER: remove green column boxes ──
-   Footer columns show bg-green-800/700 boxes — neutralize them */
-footer div[class*="bg-green-800"],
-footer div[class*="bg-green-700"],
-footer div[class*="bg-green-600"]:not(.w-10) {
-  background-color: transparent !important;
-  border: none !important;
-}
-
-/* ── FOOTER logo badge ── */
+footer div[class*="bg-green-800"], footer div[class*="bg-green-700"],
+footer div[class*="bg-green-600"]:not(.w-10) { background-color: transparent !important; border: none !important; }
 footer .w-10.h-10.bg-green-600 span { display: none !important; }
 footer .w-10.h-10.bg-green-600 {
   background: transparent !important;
   background-image: url('/pnw-irrigation/logo.png') !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
+  background-size: contain !important; background-repeat: no-repeat !important;
   background-position: center !important;
-  width: 120px !important; height: 120px !important;
-  min-width: 120px !important; border-radius: 0 !important;
+  width: 120px !important; height: 120px !important; min-width: 120px !important; border-radius: 0 !important;
 }
+
+/* ── INJECTED SECTIONS STYLING ── */
+.pnw-problems-section {
+  padding: 72px 24px;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+}
+.pnw-problems-section .inner { max-width: 1200px; margin: 0 auto; }
+.pnw-problems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+@media(max-width: 768px) { .pnw-problems-grid { grid-template-columns: 1fr; } }
+.pnw-problem-card {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid #0D7A5F;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.pnw-problem-card h3 { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 8px; }
+.pnw-problem-card p { font-size: 14px; color: #6B7280; line-height: 1.6; }
+.pnw-problem-card .icon { font-size: 22px; margin-bottom: 12px; }
+
+.pnw-process-section {
+  padding: 72px 24px;
+  background: #0D2137;
+  color: white;
+}
+.pnw-process-section .inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+.pnw-process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+  position: relative;
+}
+@media(max-width: 768px) { .pnw-process-grid { grid-template-columns: 1fr; gap: 24px; } }
+.pnw-process-step { text-align: center; position: relative; padding: 0 16px; }
+.pnw-step-num {
+  width: 52px; height: 52px;
+  background: #0D7A5F;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 800;
+  margin: 0 auto 16px;
+  color: white;
+}
+.pnw-process-step h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; color: white; }
+.pnw-process-step p { font-size: 14px; color: #A8C5BA; line-height: 1.6; }
+
+.pnw-pricing-note {
+  background: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-left: 4px solid #1565C0;
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin: 0 auto;
+  max-width: 800px;
+  font-size: 14px;
+  color: #1E40AF;
+  text-align: center;
+}
+
+.pnw-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #0D7A5F; margin-bottom: 12px;
+}
+.pnw-section-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800; color: #111827; line-height: 1.2; margin-bottom: 16px;
+}
+.pnw-section-sub { font-size: 16px; color: #6B7280; max-width: 560px; margin: 0 auto; line-height: 1.7; }
 </style>
+
 <script>
 (function() {
-  function fixNavLogo() {
-    var groupImg = document.querySelector('nav a.group img, nav .group > img');
-    if (groupImg) {
-      groupImg.style.filter = 'none';
-      groupImg.style.height = '48px';
-      groupImg.style.width = 'auto';
-      groupImg.style.margin = '0';
-    }
+  /* ─────────────────────────────────────────────
+     UTILITY
+  ───────────────────────────────────────────── */
+  function ready(fn) {
+    if (document.readyState !== 'loading') fn();
+    else document.addEventListener('DOMContentLoaded', fn);
   }
-  function swapPreloaderIcon() {
+
+  function afterLoad(fn) {
+    window.addEventListener('load', fn);
+    window.addEventListener('load', function() { setTimeout(fn, 600); });
+  }
+
+  /* ─────────────────────────────────────────────
+     1. NAV LOGO
+  ───────────────────────────────────────────── */
+  function fixNavLogo() {
+    var img = document.querySelector('nav a.group img, nav .group > img');
+    if (img) { img.style.filter='none'; img.style.height='48px'; img.style.width='auto'; img.style.margin='0'; }
+  }
+
+  /* ─────────────────────────────────────────────
+     2. PRELOADER LOGO
+  ───────────────────────────────────────────── */
+  function swapPreloader() {
     document.querySelectorAll('.fixed.inset-0').forEach(function(el) {
       if (el.closest('nav') || el.closest('header')) return;
-      if (el.getAttribute('role') === 'menu') return;
-      if (el.className.indexOf('top-[72px]') !== -1) return;
-      if (el.className.indexOf('lg:hidden') !== -1) return;
+      if (el.getAttribute('role')==='menu') return;
+      if (el.className.indexOf('top-[72px]')!==-1 || el.className.indexOf('lg:hidden')!==-1) return;
       if (!el.className.includes('bg-green')) return;
       if (el.querySelector('.pnw-real-logo')) return;
       var svg = el.querySelector('svg');
       if (!svg) return;
       var img = document.createElement('img');
-      img.className = 'pnw-real-logo';
-      img.src = '/pnw-irrigation/logo.png';
-      img.alt = 'Pacific Northwest Irrigation';
-      img.style.cssText = 'width:240px;height:auto;display:block;margin:0 auto 24px;filter:none;';
+      img.className='pnw-real-logo';
+      img.src='/pnw-irrigation/logo.png';
+      img.alt='Pacific Northwest Irrigation';
+      img.style.cssText='width:240px;height:auto;display:block;margin:0 auto 24px;filter:none;';
       svg.parentNode.insertBefore(img, svg);
-      svg.style.display = 'none';
+      svg.style.display='none';
     });
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', fixNavLogo);
-  } else { fixNavLogo(); }
-  window.addEventListener('load', fixNavLogo);
-  window.addEventListener('load', swapPreloaderIcon);
-  window.addEventListener('load', function() { setTimeout(function() { fixNavLogo(); swapPreloaderIcon(); }, 500); });
+
+  /* ─────────────────────────────────────────────
+     3. REWRITE HERO COPY
+  ───────────────────────────────────────────── */
+  function rewriteHero() {
+    var hero = document.querySelector('section[class*="min-h"]');
+    if (!hero) return;
+
+    // Eyebrow
+    var eyebrow = hero.querySelector('[class*="text-green-400"], [class*="text-green-300"]');
+    if (eyebrow) eyebrow.textContent = "Seattle's Trusted Irrigation Contractor";
+
+    // H1
+    var h1 = hero.querySelector('h1');
+    if (h1 && !h1.dataset.refined) {
+      h1.dataset.refined = '1';
+      h1.innerHTML = 'Professional Irrigation<br/><span style="color:#4ADE80">Installation & Repair</span><br/>in Greater Seattle';
+      h1.style.cssText = 'font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.05;letter-spacing:-0.02em;margin-bottom:20px;';
+    }
+
+    // Subheadline
+    var sub = hero.querySelector('p');
+    if (sub && !sub.dataset.refined) {
+      sub.dataset.refined = '1';
+      sub.textContent = 'Fast installs, reliable repairs, and long-term water efficiency for Seattle homeowners. Same-day service available.';
+      sub.style.cssText = 'font-size:17px;line-height:1.7;opacity:0.9;max-width:480px;margin-bottom:32px;';
+    }
+
+    // Stats — upgrade numbers
+    var stats = hero.querySelectorAll('[class*="text-3xl"], [class*="text-4xl"], [class*="text-5xl"]');
+    var statData = [['4.9★','Google Rating'],['500+','Systems Installed'],['24/7','Emergency Service']];
+    stats.forEach(function(stat, i) {
+      if (statData[i] && !stat.dataset.refined) {
+        stat.dataset.refined='1';
+        stat.textContent = statData[i][0];
+        var label = stat.nextElementSibling;
+        if (label) label.textContent = statData[i][1];
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     4. REWRITE SERVICE CARDS (outcome-focused)
+  ───────────────────────────────────────────── */
+  function rewriteServices() {
+    var serviceSection = document.querySelector('section[class*="bg-green-50"]');
+    if (!serviceSection) return;
+
+    // Section header
+    var sectionLabel = serviceSection.querySelector('[class*="text-green-600"], [class*="text-green-500"]');
+    if (sectionLabel && !sectionLabel.dataset.refined) {
+      sectionLabel.dataset.refined = '1';
+      sectionLabel.textContent = 'What We Do';
+    }
+
+    var sectionTitle = serviceSection.querySelector('h2');
+    if (sectionTitle && !sectionTitle.dataset.refined) {
+      sectionTitle.dataset.refined = '1';
+      sectionTitle.textContent = 'Complete Irrigation Solutions';
+    }
+
+    // Service cards — find by their heading text and rewrite desc
+    var cards = serviceSection.querySelectorAll('[class*="rounded-xl"], [class*="rounded-2xl"]');
+    var rewrites = {
+      'Sprinkler Repair': {
+        tag: 'Fast & Reliable',
+        title: 'Sprinkler Repair',
+        desc: 'Uneven brown patches? Leaking heads? We diagnose and fix the problem same day — restoring full, even coverage across your lawn.'
+      },
+      'Sprinkler Installation': {
+        tag: 'New System Design',
+        title: 'Sprinkler Installation',
+        desc: 'Get a professionally designed system built for your property — zones mapped for full coverage, maximum efficiency, and minimum water waste.'
+      },
+      'Winterization': {
+        tag: 'Protect Your Investment',
+        title: 'System Winterization',
+        desc: "One freeze can crack your pipes and heads. We blow out your system completely so you don't face costly spring repairs."
+      },
+      'Irrigation Maintenance': {
+        tag: 'Stay Ahead of Problems',
+        title: 'Seasonal Maintenance',
+        desc: 'Catch small issues before they become expensive ones. Our maintenance plans keep your system running at peak efficiency year-round.'
+      }
+    };
+
+    cards.forEach(function(card) {
+      if (card.dataset.refined) return;
+      var heading = card.querySelector('h3');
+      if (!heading) return;
+      var text = heading.textContent.trim();
+      var rw = rewrites[text];
+      if (!rw) return;
+      card.dataset.refined = '1';
+      var tag = card.querySelector('[class*="text-green-600"], [class*="text-green-500"]');
+      if (tag) tag.textContent = rw.tag;
+      heading.textContent = rw.title;
+      var desc = card.querySelector('p');
+      if (desc) desc.textContent = rw.desc;
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     5. INJECT "COMMON PROBLEMS" SECTION
+        — inserted after services section
+  ───────────────────────────────────────────── */
+  function injectProblems() {
+    if (document.getElementById('pnw-problems')) return;
+    var servicesSection = document.querySelector('section[class*="bg-green-50"]');
+    if (!servicesSection) return;
+
+    var problems = [
+      { icon: '💧', title: 'Low Water Pressure', desc: 'Heads that barely pop up or drip instead of spray. We find the blockage and restore proper flow.' },
+      { icon: '🌿', title: 'Dry Spots & Brown Patches', desc: 'Gaps in coverage mean parts of your lawn go dry. We redesign zone coverage so every inch gets watered.' },
+      { icon: '🔧', title: 'Broken or Clogged Heads', desc: 'Cracked, stuck, or sputtering heads waste water and kill grass. Same-day replacement available.' },
+      { icon: '🚿', title: 'Leaks & Soggy Zones', desc: 'Standing water and muddy spots signal a leak. We locate and repair it before it damages your foundation.' },
+      { icon: '⏱️', title: 'Controller Problems', desc: 'Wrong run times, skipped zones, or a dead controller. We reprogram or replace so your schedule works reliably.' },
+      { icon: '❄️', title: 'Freeze Damage', desc: 'Cracked pipes and heads from a hard freeze. We assess the damage, replace what\'s needed, and winterize properly going forward.' }
+    ];
+
+    var section = document.createElement('section');
+    section.id = 'pnw-problems';
+    section.className = 'pnw-problems-section';
+    section.innerHTML =
+      '<div class="inner">' +
+        '<div style="text-align:center;margin-bottom:8px"><p class="pnw-eyebrow">Common Irrigation Problems We Fix</p></div>' +
+        '<h2 class="pnw-section-title" style="text-align:center">Sound Familiar?</h2>' +
+        '<p class="pnw-section-sub" style="text-align:center;margin-bottom:0">These are the calls we get every day from Seattle homeowners. Whatever the issue, we\'ve fixed it hundreds of times.</p>' +
+        '<div class="pnw-problems-grid">' +
+          problems.map(function(p) {
+            return '<div class="pnw-problem-card"><div class="icon">' + p.icon + '</div><h3>' + p.title + '</h3><p>' + p.desc + '</p></div>';
+          }).join('') +
+        '</div>' +
+        '<div style="text-align:center;margin-top:40px">' +
+          '<a href="#contact" onclick="document.querySelector(\'[data-section=contact], [class*=contact]\')?.scrollIntoView({behavior:\'smooth\'})" style="display:inline-flex;align-items:center;gap:8px;background:#1565C0;color:white;padding:14px 32px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;">Get a Free Diagnosis</a>' +
+        '</div>' +
+      '</div>';
+
+    servicesSection.parentNode.insertBefore(section, servicesSection.nextSibling);
+  }
+
+  /* ─────────────────────────────────────────────
+     6. REWRITE "WHY US" SECTION
+  ───────────────────────────────────────────── */
+  function rewriteWhyUs() {
+    var whySection = document.querySelector('section[class*="bg-white"]');
+    if (!whySection || whySection.dataset.refined) return;
+    whySection.dataset.refined = '1';
+
+    var title = whySection.querySelector('h2');
+    if (title) title.textContent = 'Why Seattle Homeowners Choose Us';
+
+    var sub = whySection.querySelector('p');
+    if (sub) sub.textContent = "We're not a call center dispatch. We're a local team that shows up, does the work right, and stands behind it.";
+
+    // Rewrite the 4 feature points
+    var items = whySection.querySelectorAll('[class*="flex"][class*="items-start"], [class*="flex"][class*="items-center"]');
+    var betterCopy = [
+      ['Fast Response', 'We pick up the phone and show up the same day — because a broken sprinkler in July can\'t wait.'],
+      ['Honest Pricing', 'You get an upfront quote before we touch anything. No surprise charges, no upsells, no pressure.'],
+      ['Local Expertise', 'We know Seattle\'s soil, climate, and water restrictions. Our systems are built to last here.'],
+      ['We Show Up', 'Every appointment gets a real arrival window. We respect your time and keep our word.'],
+    ];
+    var idx = 0;
+    items.forEach(function(item) {
+      if (idx >= betterCopy.length) return;
+      var h = item.querySelector('h3');
+      var p = item.querySelector('p');
+      if (h && p && !item.dataset.refined) {
+        item.dataset.refined = '1';
+        h.textContent = betterCopy[idx][0];
+        p.textContent = betterCopy[idx][1];
+        idx++;
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     7. INJECT 3-STEP PROCESS SECTION
+        — inserted after why-us section
+  ───────────────────────────────────────────── */
+  function injectProcess() {
+    if (document.getElementById('pnw-process')) return;
+    var whySection = document.querySelector('section[class*="bg-white"]');
+    if (!whySection) return;
+
+    var section = document.createElement('section');
+    section.id = 'pnw-process';
+    section.className = 'pnw-process-section';
+    section.innerHTML =
+      '<div class="inner">' +
+        '<p class="pnw-eyebrow" style="color:#5EEAD4">How It Works</p>' +
+        '<h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:white;margin-bottom:12px">Up and Running in 3 Simple Steps</h2>' +
+        '<p style="font-size:16px;color:#A8C5BA;max-width:520px;margin:0 auto 0">No confusing quotes or long waits. Here\'s exactly what happens when you call us.</p>' +
+        '<div class="pnw-process-grid">' +
+          '<div class="pnw-process-step"><div class="pnw-step-num">1</div><h3>We Inspect Your Property</h3><p>We walk your entire yard, map your zones, check water pressure, and identify every issue — at no charge.</p></div>' +
+          '<div class="pnw-process-step"><div class="pnw-step-num">2</div><h3>You Get a Clear Quote</h3><p>We give you a flat, itemized quote before any work starts. No hidden fees. You decide what to move forward with.</p></div>' +
+          '<div class="pnw-process-step"><div class="pnw-step-num">3</div><h3>We Install & Test Everything</h3><p>Our crew installs, programs, and pressure-tests every zone. We walk you through your new system before we leave.</p></div>' +
+        '</div>' +
+        '<div style="text-align:center;margin-top:48px">' +
+          '<a href="tel:2069901392" style="display:inline-flex;align-items:center;gap:8px;background:#1565C0;color:white;padding:15px 36px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;">📞 Call (206) 990-1392</a>' +
+        '</div>' +
+      '</div>';
+
+    whySection.parentNode.insertBefore(section, whySection.nextSibling);
+  }
+
+  /* ─────────────────────────────────────────────
+     8. ADD PRICING NOTE before CTA banner
+  ───────────────────────────────────────────── */
+  function injectPricing() {
+    if (document.getElementById('pnw-pricing')) return;
+    var ctaBanner = document.querySelector('section[class*="bg-green-500"], section[class*="bg-green-600"]');
+    if (!ctaBanner) return;
+
+    var div = document.createElement('div');
+    div.id = 'pnw-pricing';
+    div.style.cssText = 'background:#F8FAFC;padding:28px 24px;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;';
+    div.innerHTML =
+      '<p class="pnw-pricing-note">' +
+        '💡 <strong>Pricing guide:</strong> Most sprinkler repairs run <strong>$75–$250</strong>. ' +
+        'New system installations typically range from <strong>$2,000–$6,000</strong> depending on property size and complexity. ' +
+        'We provide free on-site estimates with no obligation.' +
+      '</p>';
+
+    ctaBanner.parentNode.insertBefore(div, ctaBanner);
+  }
+
+  /* ─────────────────────────────────────────────
+     9. STRENGTHEN CTA BANNER COPY
+  ───────────────────────────────────────────── */
+  function refineCTA() {
+    var ctaBanner = document.querySelector('section[class*="bg-green-500"], section[class*="bg-green-600"]');
+    if (!ctaBanner || ctaBanner.dataset.refined) return;
+    ctaBanner.dataset.refined = '1';
+
+    var h2 = ctaBanner.querySelector('h2');
+    if (h2) h2.textContent = "Ready for a Lawn That Stays Green All Season?";
+
+    var sub = ctaBanner.querySelector('p');
+    if (sub) sub.textContent = "Call for a free on-site estimate. We typically schedule within 48 hours — same day for urgent repairs.";
+  }
+
+  /* ─────────────────────────────────────────────
+     10. LOCAL SEO — enhance service area text
+  ───────────────────────────────────────────── */
+  function enhanceLocalSEO() {
+    var areaSection = document.querySelector('section[class*="bg-green-900"]');
+    if (!areaSection || areaSection.dataset.refined) return;
+    areaSection.dataset.refined = '1';
+
+    var h2 = areaSection.querySelector('h2');
+    if (h2) h2.textContent = 'Serving Greater Seattle & the Eastside';
+
+    var sub = areaSection.querySelector('p');
+    if (sub) sub.textContent = 'From North Seattle to Renton, Shoreline to Bellevue — we cover the entire metro area with fast response times and local expertise.';
+  }
+
+  /* ─────────────────────────────────────────────
+     11. STRENGTHEN TESTIMONIALS
+  ───────────────────────────────────────────── */
+  function strengthenTestimonials() {
+    var testSection = document.querySelectorAll('section[class*="bg-green-50"]')[1];
+    if (!testSection || testSection.dataset.refined) return;
+    testSection.dataset.refined = '1';
+
+    var h2 = testSection.querySelector('h2');
+    if (h2) h2.textContent = "Real Reviews. Real Seattle Homeowners.";
+
+    var newTestimonials = [
+      { text: "Called at 8am with a broken head flooding my yard. They were here by 11, fixed everything, and charged exactly what they quoted. Can't ask for more.", name: 'Mike Johnson', loc: 'Shoreline, WA', init: 'MJ' },
+      { text: "Had them install a full system for our new home. They mapped every zone perfectly — my lawn has never looked this good. Worth every dollar.", name: 'Sarah Chen', loc: 'Renton, WA', init: 'SC' },
+      { text: "Manages irrigation for 4 of my rental properties. They show up, do the work, send the invoice, and never give me problems. Exactly what I need.", name: 'David Martinez', loc: 'Property Manager, Seattle', init: 'DM' },
+    ];
+
+    var cards = testSection.querySelectorAll('[class*="bg-white"], [class*="rounded-xl"]');
+    cards.forEach(function(card, i) {
+      var t = newTestimonials[i];
+      if (!t || card.dataset.refined) return;
+      card.dataset.refined = '1';
+      var quote = card.querySelector('p[class*="italic"], p[class*="text-gray"]');
+      if (quote) quote.textContent = '\u201C' + t.text + '\u201D';
+      var name = card.querySelector('[class*="font-semibold"], strong, b');
+      if (name) name.textContent = t.name;
+      var loc = card.querySelector('[class*="text-sm"][class*="text-gray"], small');
+      if (loc) loc.textContent = t.loc;
+    });
+  }
+
+  /* ─────────────────────────────────────────────
+     RUN ALL
+  ───────────────────────────────────────────── */
+  function runAll() {
+    fixNavLogo();
+    swapPreloader();
+    rewriteHero();
+    rewriteServices();
+    injectProblems();
+    rewriteWhyUs();
+    injectProcess();
+    injectPricing();
+    refineCTA();
+    enhanceLocalSEO();
+    strengthenTestimonials();
+  }
+
+  ready(runAll);
+  afterLoad(runAll);
 })();
 </script>
 <!-- /PNW-LOGO-INJECTION -->
