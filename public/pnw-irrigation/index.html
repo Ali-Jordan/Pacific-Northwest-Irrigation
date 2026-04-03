@@ -18,62 +18,84 @@
   <!-- PNW-LOGO-INJECTION -->
 <style>
 /* ═══════════════════════════════════════════════════════════
-   PNW IRRIGATION — Color Pass 2 + Mobile Nav Fix
+   PNW IRRIGATION — Final Color + Nav Fix
    ═══════════════════════════════════════════════════════════ */
 
-/* ── NAV ── */
-nav.fixed, header.fixed,
-nav[class*="fixed"], nav[class*="bg-green"] {
+/* ── 1. NAV BACKGROUND ── */
+nav.fixed, nav[class*="fixed"] {
   background-color: #1B4332 !important;
 }
 
-/* ── NAV DESKTOP LOGO only — target the logo inside .group wrapper ──
-   Mobile menu logo is inside a link with py-4, so we explicitly exclude it */
-nav .group img,
-nav a.group img {
+/* ── 2. NAV DESKTOP LOGO — fits inside 72px nav height ── */
+nav .group img {
   filter: none !important;
-  height: 68px !important;
+  height: 48px !important;
   width: auto !important;
+  display: block !important;
 }
 
-/* ── Mobile menu logo — keep it small and inline ── */
-nav [class*="animate-fade"] img,
-nav [class*="py-4"] img,
-nav [class*="border-b"] img {
-  height: 28px !important;
-  width: auto !important;
-  filter: none !important;
-  margin: 0 !important;
-  display: inline-block !important;
+/* ── 3. MOBILE HAMBURGER ALIGNMENT ── */
+/* Ensure the nav inner row is vertically centered */
+nav > div:first-child {
+  align-items: center !important;
+  height: 72px !important;
+}
+/* Hamburger button vertically centered */
+nav button.lg\:hidden {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 40px !important;
+  width: 40px !important;
 }
 
-/* ── NAV "Get Free Quote" button — blue ── */
-nav a[class*="bg-green"], header a[class*="bg-green"],
-a[class*="bg-green-600"][class*="font-semibold"],
-a[class*="bg-green-600"][class*="font-bold"] {
+/* ── 4. MOBILE MENU — restore correct dark forest green ──
+   Mobile menu: lg:hidden fixed inset-0 top-[72px] bg-green-900/98
+   Our div[class*="bg-green-900"] rule was overriding this — fix it back */
+nav [role="menu"],
+nav div[class*="bg-green-900"],
+.lg\:hidden[class*="fixed"][class*="inset-0"] {
+  background-color: rgba(20, 83, 45, 0.98) !important;
+  backdrop-filter: blur(16px) !important;
+}
+/* Mobile menu links should stay green-themed */
+nav [role="menu"] a,
+nav [role="menu"] button {
+  color: white !important;
+}
+nav [role="menu"] a:hover {
+  color: #86efac !important;
+}
+
+/* ── 5. NAV CTA BUTTON — blue ── */
+nav a[class*="bg-green"],
+header a[class*="bg-green"] {
   background-color: #1565C0 !important;
   border-color: #1565C0 !important;
 }
-nav a[class*="bg-green"]:hover, header a[class*="bg-green"]:hover {
+nav a[class*="bg-green"]:hover {
   background-color: #0D47A1 !important;
 }
 
-/* ── HERO PRIMARY CTA — blue ── */
-a[class*="bg-green-600"], button[class*="bg-green-600"] {
+/* ── 6. HERO BUTTONS — blue ── */
+a[class*="bg-green-600"]:not(nav a):not(footer a):not([class*="fixed"]),
+button[class*="bg-green-600"]:not([class*="fixed"]) {
   background-color: #1565C0 !important;
-  border-color: #1565C0 !important;
 }
-a[class*="bg-green-600"]:hover, button[class*="bg-green-600"]:hover {
+a[class*="bg-green-600"]:hover:not(nav a):not(footer a):not([class*="fixed"]),
+button[class*="bg-green-600"]:hover:not([class*="fixed"]) {
   background-color: #0D47A1 !important;
 }
 
-/* ── SECTION BACKGROUNDS ── */
-section[class*="bg-green-50"], div[class*="bg-green-50"],
-section[class*="bg-gray-50"], div[class*="bg-gray-50"] {
+/* ── 7. SECTION BACKGROUNDS ── */
+section[class*="bg-green-50"], div[class*="bg-green-50"] {
   background-color: #F8FAFC !important;
 }
+section[class*="bg-gray-50"] {
+  background-color: #F0F9F6 !important;
+}
 
-/* ── SERVICE CARDS ── */
+/* ── 8. SERVICE CARDS ── */
 div[class*="bg-white"][class*="rounded-xl"],
 div[class*="bg-white"][class*="rounded-2xl"],
 div[class*="bg-white"][class*="shadow"] {
@@ -81,66 +103,70 @@ div[class*="bg-white"][class*="shadow"] {
   box-shadow: 0 2px 16px rgba(0,0,0,0.05) !important;
 }
 
-/* ── SECTION LABELS & LINKS — teal ── */
-p[class*="text-green-600"], span[class*="text-green-600"],
-p[class*="text-green-500"], span[class*="text-green-500"] {
-  color: #0D7A5F !important;
-}
+/* ── 9. SECTION LABELS & LINKS — teal ── */
+p[class*="text-green-600"]:not(nav *):not(footer *),
+span[class*="text-green-600"]:not(nav *):not(footer *),
 a[class*="text-green-600"]:not(nav a):not(footer a) {
   color: #0D7A5F !important;
 }
 
-/* ── CHECK ICON CONTAINERS — mint ── */
+/* ── 10. CHECK ICON CONTAINERS ── */
 div[class*="bg-green-100"], span[class*="bg-green-100"] {
   background-color: #D1FAE5 !important;
 }
 div[class*="bg-green-100"] svg, span[class*="bg-green-100"] svg {
-  color: #065F46 !important; stroke: #065F46 !important;
+  color: #065F46 !important;
+  stroke: #065F46 !important;
 }
 
-/* ── YEARS BADGE ── */
+/* ── 11. YEARS BADGE ── */
 div[class*="bg-green-600"][class*="absolute"],
 div[class*="bg-green-700"][class*="absolute"] {
   background: #1B4332 !important;
 }
 
-/* ── SERVICE AREA — dark navy ── */
-section[class*="bg-green-900"], section[class*="bg-green-800"],
-div[class*="bg-green-900"], div[class*="bg-green-800"] {
+/* ── 12. SERVICE AREA SECTION — navy, but NOT the mobile menu ── */
+section[class*="bg-green-900"],
+section[class*="bg-green-800"] {
   background-color: #0D2137 !important;
 }
-section[class*="bg-green-900"] div[class*="rounded"],
-div[class*="bg-green-900"] div[class*="rounded"] {
+section[class*="bg-green-900"] div[class*="rounded"] {
   background-color: rgba(13,122,95,0.18) !important;
   border: 1px solid rgba(13,122,95,0.35) !important;
 }
-section[class*="bg-green-900"] p,
 section[class*="bg-green-900"] span,
-div[class*="bg-green-900"] p,
-div[class*="bg-green-900"] span {
+section[class*="bg-green-900"] p {
   color: #E0F2EE !important;
 }
 section[class*="bg-green-900"] p[class*="text-green-400"],
-div[class*="bg-green-900"] p[class*="text-green-400"] {
+section[class*="bg-green-900"] span[class*="text-green-400"] {
   color: #5EEAD4 !important;
 }
 
-/* ── CTA BANNER ── */
-section[class*="bg-green-500"], section[class*="bg-green-600"],
-div[class*="bg-green-500"], div[class*="bg-green-600"] {
+/* ── 13. CTA BANNER — forest to teal gradient ── */
+section[class*="bg-green-500"],
+section[class*="bg-green-600"] {
   background: linear-gradient(135deg, #1B4332 0%, #0D7A5F 100%) !important;
 }
 
-/* ── TESTIMONIALS bg ── */
-section[class*="bg-gray-50"], div[class*="bg-gray-50"] {
-  background-color: #F0F9F6 !important;
+/* ── 14. SCROLL TO TOP ── */
+button[class*="bg-green-600"][class*="fixed"] {
+  background-color: #0D7A5F !important;
 }
 
-/* ── FOOTER LOGO BADGE ── */
-.w-10.h-10.bg-green-600 span, .w-10.h-10.bg-green-600 .text-white {
+/* ── 15. PRELOADER ── */
+div[class*="bg-green-900"][class*="fixed"][class*="inset-0"]:not([role="menu"]):not(nav *) {
+  background-color: #0D2137 !important;
+}
+
+/* ── 16. FOOTER LOGO BADGE — must come LAST with highest specificity ── */
+footer .w-10.h-10.bg-green-600 span,
+footer div.w-10.h-10.bg-green-600 span {
   display: none !important;
 }
-.w-10.h-10.bg-green-600 {
+footer .w-10.h-10.bg-green-600,
+footer div.w-10.h-10.bg-green-600 {
+  background: transparent !important;
   background-color: transparent !important;
   background-image: url('/pnw-irrigation/logo.png') !important;
   background-size: contain !important;
@@ -151,65 +177,49 @@ section[class*="bg-gray-50"], div[class*="bg-gray-50"] {
   min-width: 120px !important;
   border-radius: 0 !important;
 }
-
-/* ── SCROLL TO TOP & MISC ── */
-button[class*="bg-green-600"][class*="fixed"],
-a[class*="bg-green-600"][class*="fixed"] {
-  background-color: #0D7A5F !important;
-}
-
-/* ── PRELOADER BG ── */
-.fixed.inset-0[class*="bg-green"] {
-  background-color: #0D2137 !important;
-}
 </style>
 <script>
 (function() {
   function fixNavLogo() {
-    // Only fix the desktop logo — the one inside a .group anchor
-    var groupImgs = document.querySelectorAll('nav .group img, nav a.group img');
-    groupImgs.forEach(function(img) {
+    // Desktop logo only — inside .group
+    document.querySelectorAll('nav .group img, nav a.group img').forEach(function(img) {
       img.style.filter = 'none';
-      img.style.height = '68px';
+      img.style.height = '48px';
       img.style.width = 'auto';
       img.style.margin = '0';
-    });
-    // Shrink any other nav images (mobile menu)
-    var allNavImgs = document.querySelectorAll('nav img');
-    allNavImgs.forEach(function(img) {
-      if (!img.closest('.group')) {
-        img.style.filter = 'none';
-        img.style.height = '28px';
-        img.style.width = 'auto';
-        img.style.margin = '0';
-        img.style.display = 'inline-block';
-      }
+      img.style.display = 'block';
     });
   }
 
   function swapPreloaderIcon() {
-    // Only target the true preloader — must be .fixed.inset-0 with bg-green
-    // and must NOT be inside nav
     document.querySelectorAll('.fixed.inset-0').forEach(function(el) {
-      if (el.tagName === 'NAV' || el.closest('nav') || el.closest('header')) return;
+      // Skip nav, mobile menu (has role=menu or top-[72px] class), and anything inside nav
+      if (el.closest('nav') || el.closest('header')) return;
+      if (el.getAttribute('role') === 'menu') return;
+      if (el.className.includes('top-\[72px\]') || el.className.includes('top-[72px]')) return;
       if (!el.className.includes('bg-green')) return;
       if (el.querySelector('.pnw-real-logo')) return;
+
       var svg = el.querySelector('svg');
       if (svg) {
         var img = document.createElement('img');
         img.className = 'pnw-real-logo';
         img.src = '/pnw-irrigation/logo.png';
         img.alt = 'Pacific Northwest Irrigation';
-        img.style.cssText = 'width:260px;height:auto;display:block;margin:0 auto 24px;filter:none;';
+        img.style.cssText = 'width:240px;height:auto;display:block;margin:0 auto 24px;filter:none;';
         svg.parentNode.insertBefore(img, svg);
         svg.style.display = 'none';
       }
     });
   }
 
-  var obs = new MutationObserver(function() { fixNavLogo(); swapPreloaderIcon(); });
-  obs.observe(document.documentElement, {childList:true, subtree:true});
-  fixNavLogo(); swapPreloaderIcon();
+  var obs = new MutationObserver(function() {
+    fixNavLogo();
+    swapPreloaderIcon();
+  });
+  obs.observe(document.documentElement, {childList: true, subtree: true});
+  fixNavLogo();
+  swapPreloaderIcon();
   setTimeout(function(){ fixNavLogo(); swapPreloaderIcon(); }, 100);
   setTimeout(function(){ fixNavLogo(); swapPreloaderIcon(); }, 500);
 })();
