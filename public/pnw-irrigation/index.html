@@ -15,87 +15,66 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d2a855'%3E%3Cpath d='M12 2c1 0 9.5 5.1 9.5 11.7 0 4.1-4.4 7.3-9.5 7.3S2.5 17.8 2.5 13.7C2.5 7.1 11 2 12 2z'/%3E%3C/svg%3E" />
     <script type="module" crossorigin src="/pnw-irrigation/assets/index-CO1F-YiC.js"></script>
     <link rel="stylesheet" crossorigin href="/pnw-irrigation/assets/index-Dyym45z0.css">
-  
-<!-- PNW-LOGO-INJECTION -->
-
+  <!-- PNW-LOGO-INJECTION -->
 <style>
-  /* Hide the water drop SVG icon in preloader */
+  /* ── Footer: replace green PNW badge with real logo ── */
+  /* Hide the "PNW" text */
+  .w-10.h-10.bg-green-600 span,
+  .w-10.h-10.bg-green-600 .text-white {
+    display: none !important;
+  }
+  /* Show logo as background on the badge container */
+  .w-10.h-10.bg-green-600 {
+    background-color: transparent !important;
+    background-image: url('/pnw-irrigation/logo.png') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 0 !important;
+  }
+
+  /* ── Preloader: hide water drop SVG, show logo ── */
+  /* The preloader icon wrapper has these classes */
   .preloader-icon svg,
   .preloader-text svg {
     display: none !important;
   }
-  /* Hide default nav logo icon if it has SVG */
-  .nav-logo-icon svg,
-  .logo-icon svg {
+  /* Inject logo via the preloader container */
+  .fixed.inset-0.z-\[9999\] svg:first-of-type {
     display: none !important;
   }
 </style>
 <script>
 (function() {
-  function injectLogo() {
-    // ── Preloader: replace the SVG icon with the real logo ──
-    // The preloader has a fixed green bg — find any SVG inside it
-    var preloader = document.querySelector('.fixed.inset-0[class*="bg-green"]');
-    if (preloader) {
-      // Find the icon container (first svg or icon wrapper)
-      var icons = preloader.querySelectorAll('svg');
-      icons.forEach(function(icon) {
-        var wrapper = icon.parentNode;
-        icon.style.display = 'none';
-        if (!wrapper.querySelector('.pnw-injected-logo')) {
+  function swapPreloaderIcon() {
+    // Target the preloader — green full-screen div
+    var preloaders = document.querySelectorAll('.fixed.inset-0');
+    preloaders.forEach(function(el) {
+      if (el.className && el.className.includes('bg-green') && !el.querySelector('.pnw-real-logo')) {
+        var svg = el.querySelector('svg');
+        if (svg) {
           var img = document.createElement('img');
+          img.className = 'pnw-real-logo';
           img.src = '/pnw-irrigation/logo.png';
           img.alt = 'Pacific Northwest Irrigation';
-          img.className = 'pnw-injected-logo';
-          img.style.cssText = 'width:160px;height:auto;display:block;margin:0 auto 8px;';
-          wrapper.insertBefore(img, icon);
-        }
-      });
-    }
-
-    // ── Nav/Footer: replace PNW badge text logo with img ──
-    // Look for elements containing just the letter badge "PNW"
-    document.querySelectorAll('[class*="logo"]').forEach(function(el) {
-      if (el.textContent.trim() === 'PNW' || el.innerHTML.includes('PNW')) {
-        if (!el.querySelector('.pnw-injected-logo')) {
-          var img = document.createElement('img');
-          img.src = '/pnw-irrigation/logo.png';
-          img.alt = 'PNW Irrigation';
-          img.className = 'pnw-injected-logo';
-          img.style.cssText = 'width:36px;height:36px;object-fit:contain;display:block;';
-          el.innerHTML = '';
-          el.appendChild(img);
+          img.style.cssText = 'width:200px;height:auto;display:block;margin:0 auto 20px;';
+          svg.parentNode.insertBefore(img, svg);
+          svg.style.display = 'none';
         }
       }
     });
   }
 
-  // Run immediately and on DOM ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      injectLogo();
-      // Also run after React hydrates (slight delay)
-      setTimeout(injectLogo, 100);
-      setTimeout(injectLogo, 500);
-      setTimeout(injectLogo, 1000);
-    });
-  } else {
-    injectLogo();
-    setTimeout(injectLogo, 100);
-    setTimeout(injectLogo, 500);
-    setTimeout(injectLogo, 1000);
-  }
-
-  // MutationObserver to catch React rendering the preloader
-  var observer = new MutationObserver(function(mutations) {
-    injectLogo();
-  });
-  observer.observe(document.body || document.documentElement, {
-    childList: true, subtree: true
-  });
+  // Run immediately and watch for React to mount the preloader
+  var obs = new MutationObserver(swapPreloaderIcon);
+  obs.observe(document.documentElement, {childList:true, subtree:true});
+  swapPreloaderIcon();
+  setTimeout(swapPreloaderIcon, 50);
+  setTimeout(swapPreloaderIcon, 200);
 })();
 </script>
-
 <!-- /PNW-LOGO-INJECTION -->
 </head>
   <body>
